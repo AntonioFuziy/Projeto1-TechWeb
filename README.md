@@ -1,6 +1,6 @@
 # Projeto1-TechWeb
 
-`Para criação do database do Projeto 1, os passos a seguir devem ser seguidos.`
+**Para criação do database do Projeto 1, os passos a seguir devem ser seguidos.**
 
 `CREATE DATABASE projeto1;`
 
