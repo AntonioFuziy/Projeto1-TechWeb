@@ -18,10 +18,10 @@ public class DAO {
 				"antoniofuziy", "12345");
 	}
 	
-	public List<Tarefas> getTarefas() throws SQLException {
-		List<Tarefas> tarefas = new ArrayList<Tarefas>();
+	public List<Tarefas> getTarefasPessoal() throws SQLException {
+		List<Tarefas> pessoal = new ArrayList<Tarefas>();
 		
-		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TarefasB ORDER BY data ASC");
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TarefasB WHERE categoria = 'Pessoal' ORDER BY data ASC");
 		ResultSet rs = stmt.executeQuery();
 		
 		while (rs.next()) {
@@ -33,12 +33,35 @@ public class DAO {
 			tarefa.setData(data);
 			tarefa.setTarefa(rs.getNString("tarefa"));
 			tarefa.setCategoria(rs.getNString("categoria"));
-			tarefas.add(tarefa);
+			pessoal.add(tarefa);
 		}
 		rs.close();
 		stmt.close();
 		
-		return tarefas;
+		return pessoal;
+	}
+	
+	public List<Tarefas> getTarefasFaculdade() throws SQLException {
+		List<Tarefas> faculdade = new ArrayList<Tarefas>();
+		
+		PreparedStatement stmt = connection.prepareStatement("SELECT * FROM TarefasB WHERE categoria = 'Faculdade' ORDER BY data ASC");
+		ResultSet rs = stmt.executeQuery();
+		
+		while (rs.next()) {
+			Tarefas tarefa = new Tarefas();
+			tarefa.setId(rs.getInt("id"));
+			tarefa.setNome(rs.getNString("nome"));
+			Calendar data = Calendar.getInstance();
+			data.setTime(rs.getDate("data"));
+			tarefa.setData(data);
+			tarefa.setTarefa(rs.getNString("tarefa"));
+			tarefa.setCategoria(rs.getNString("categoria"));
+			faculdade.add(tarefa);
+		}
+		rs.close();
+		stmt.close();
+		
+		return faculdade;
 	}
 	
 	public void addTodo(Tarefas tarefa) throws SQLException{

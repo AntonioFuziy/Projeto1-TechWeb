@@ -20,8 +20,11 @@
 		<input type='date' name='data' value="${param.data}" class="input-text">
 		<p>Tarefa:</p>
 		<input type='text' name='tarefa' value="${param.tarefa}" class="input-text">
-		<p>Categoria:</p>
-		<input type='text' name='categoria' value="${param.categoria}" class="input-text">
+		<select name="categoria" id="select">
+		  <option value="Faculdade">Faculdade</option>
+		  <option value="Pessoal">Pessoal</option>
+		</select>
+		<input type="hidden" name="categoria" value=categoria.value />
 		<input type="hidden" name="id" value="${param.id}" />
 		<button class="buttons edit-button" type="submit" value="updateTodo">Editar</button>
 	</form>

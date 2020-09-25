@@ -47,9 +47,11 @@ public class Lista extends HttpServlet {
 		try {
 			dao = new DAO();
 			
-			List<Tarefas> tarefas = dao.getTarefas();
-			
-			request.setAttribute("tarefas", tarefas);
+			List<Tarefas> pessoal = dao.getTarefasPessoal();
+			List<Tarefas> faculdade = dao.getTarefasFaculdade();
+
+			request.setAttribute("pessoal", pessoal);
+			request.setAttribute("faculdade", faculdade);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("lista.jsp");
 			dispatcher.forward(request, response);
 			

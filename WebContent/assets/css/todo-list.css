@@ -15,7 +15,7 @@ body{
 	align-items: center;
 	justify-content: center;
 	border: 1px solid #cacaca;
-	width: 800px;
+	width: 900px;
 	border-radius: 8px;
 	padding: 20px 30px;
 	background-color: #dbdbdb;
@@ -81,16 +81,8 @@ body{
 	justify-content: space-between;
 }
 
-.nome{
-	
-}
-
-.data{
-	
-}
-
-.tarefa{
-	
+.categoria-title{
+	text-align: center;
 }
 
 
